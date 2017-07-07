@@ -16,7 +16,7 @@ Allocator 的接口要求中，我们需要每次分配不固定大小的内存�
 
 为了减少向操作系统申请内存块的次数，我们需要将尽量大的 chunk 移动到链表头部。当一个新的 chunk 从头部插入链表（成为新的链表头部）后，我们使用以下方式维护链表，如下图所示。
 
-<img src="fig/fig1.1.png" alt="链表维护方式" width="750px"/>
+<img src="fig/fig1.1.png" alt="链表维护方式" width="550px"/>
 
 - 如果新 chunk 的大小比原链表头部小，则将链表头部重新设为原头部；
 - 如果新 chunk 的大小大等于原链表头部，则将原链表头部插入到新头部的上一个位置。
@@ -40,15 +40,15 @@ Allocator 的接口要求中，我们需要每次分配不固定大小的内存�
 
 我们对新建 vector、vector 大小调整与释放 vector 三个操作进行了测试。每次新建或调整大小的 vector，大小取 1 ~ 1000 内的随机数。
 
-<img src="fig/fig2.1.png" alt="新建 vector 内存申请速度" width="550px"/>
+<img src="fig/fig2.1.png" alt="新建 vector 内存申请速度" width="400px"/>
 
 ↑ 新建 vector 内存申请速度
 
-<img src="fig/fig2.2.png" alt="vector 调整大小速度" width="550px"/>
+<img src="fig/fig2.2.png" alt="vector 调整大小速度" width="400px"/>
 
 ↑ vector 调整大小速度
 
-<img src="fig/fig2.3.png" alt="释放 vector 处理速度" width="550px"/>
+<img src="fig/fig2.3.png" alt="释放 vector 处理速度" width="400px"/>
 
 ↑ 释放 vector 处理速度
 
